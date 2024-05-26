@@ -21,10 +21,10 @@ methodology with 10 other schemes. The higher level of security with slight perf
 was observe.
 
 Modules:
-  **Admin**
+  **Admin --** 
     view user,
-    view user upload file list in encrpt form \n
-  **User**
+    view user upload file list in encrpt form. 
+  **User --**
     new user,
     upload file,
     view received file with private key
