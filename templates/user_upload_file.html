@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>Cloud User</title>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<link href="../static/bluebusiness.css" rel="stylesheet" type="text/css" />
+<script language="javascript">
+function validate()
+{
+if(document.form1.uname.value=="")
+{
+alert("Enter the Username");
+document.form1.uname.focus();
+return false;
+}
+if(document.form1.pass.value=="")
+{
+alert("Enter the Password");
+document.form1.pass.focus();
+return false;
+}
+return true;
+}
+</script>
+<style type="text/css">
+</style>
+</head>
+<body>
+<div id="container">
+<div id="container-header">
+<div id="container-name"><span>User</span></div>
+<div id="container-slogan"><span>Data Server Security</span><span></span></div>
+</div>
+<div id="container-eyecatcher">
+<div id="container-navigation">
+<ul id="navigation">
+<li><a href="/user_home">Home</a></li>
+<li><a href="/user_upload_file">upload File</a></li>
+<li><a href="/user_view_file">View Files</a></li>
+<li><a href="/userlogout">Logout</a></li>
+</ul>
+</div>
+<img src="../static/images/business_eyecatcher.jpg" alt="" /></div>
+<div id="container-content">
+<h1 align="left">
+{%if msg == "Upload_sucess"%}
+<script language="javascript">
+alert("File Upload Successfully..");
+window.location.href="/user_home";
+</script>
+{%elif msg == "Upload_failed"%}
+<script language="javascript">
+alert("File Upload Failed..");
+window.location.href="/user_upload_file";
+</script>
+{%endif%}
+<!-- CONTENT END -->
+Welcome {{ value }}</h1>
+<h2 align="center">Upload File</h2>
+<form name="form1" method="post" action="/user_upload_file" enctype="multipart/form-data">
+<table width="325" height="247" border="0" align="center" cellpadding="5">
+<tr>
+<td colspan="2" scope="col">&nbsp;</td>
+</tr>
+<tr>
+<td align="left">Upload</td>
+<td align="left"><input type="file" name="file" required/></td>
+</tr>
+<tr>
+<td align="left">Select User </td>
+<td align="left"><label>
+<select name="to_user" required>
+<option value="">-Select-</option>
+{% for row in udata%}
+<option value="{{ row[4] }}">{{ row[4] }}</option>
+{%endfor%}
+</select>
+</label></td>
+</tr>
+<tr>
+<td align="left">Description</td>
+<td align="left"><label>
+<textarea name="description" required></textarea>
+</label></td>
+</tr>
+<tr>
+<td align="left">&nbsp;</td>
+<td align="left"><input type="submit" name="btn" value="Upload" /></td>
+</tr>
+</table>
+<h1 align="center"><span class="style1">{{ msg }}</span></h1>
+</form>
+<p>&nbsp;</p>
+</div>
+<div id="container-footer">
+<div id="footer">
+</div>
+</div>
+</div>
+<!-- ENDE container -->
+<div align=center><a href="/">Logout</a><br />Cloud User</div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<html>
+<head>
+<title>Cloud User</title>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<link href="../static/bluebusiness.css" rel="stylesheet" type="text/css" />
+<script language="javascript">
+function validate()
+{
+if(document.form1.name.value=="")
+{
+alert("Enter the Name");
+
+document.form1.name.focus();
+return false;
+}
+if(document.form1.contact.value=="")
+{
+alert("Enter the Contatc No.");
+document.form1.contact.focus();
+return false;
+}
+if(document.form1.email.value=="")
+{
+alert("Enter the E-mail");
+document.form1.email.focus();
+return false;
+}
+
+
+
+if(document.form1.uname.value=="")
+{
+alert("Enter the Username");
+document.form1.uname.focus();
+return false;
+}
+if(document.form1.pass.value=="")
+{
+alert("Enter the Password");
+document.form1.pass.focus();
+return false;
+}
+if(document.form1.pass.value!=document.form1.cpass.value)
+{
+alert("Both password are not equals!");
+document.form1.cpass.select();
+return false;
+}
+return true;
+}
+</script>
+</head>
+<body>
+<div id="container">
+<div id="container-header">
+<div id="container-name"><span>User Register</span></div>
+<div id="container-slogan"><span>Data Server Security</span><span></span></div>
+</div>
+<div id="container-eyecatcher">
+<div id="container-navigation">
+<ul id="navigation">
+<li><a href="/">Home</a></li>
+<li><a href="/user_reg">New User</a></li>
+
+</ul>
+</div>
+<img src="../static/images/business_eyecatcher.jpg" alt="" /></div>
+<div id="container-content">
+<div id="content">
+{%if msg == "sucess"%}
+<script language="javascript">
+alert("Register Successfully..");
+window.location.href="/";
+</script>
+{%elif msg == "Failed"%}
+<script language="javascript">
+alert("Register Failed..");
+window.location.href="/user_reg";
+</script>
+{%endif%}
+<h1>New User </h1>
+<form name="form1" method="post" action="/user_reg">
+<table width="420" height="271" border="0" align="center" cellpadding="5" cellspacing="0" class="bg2">
+<tr>
+<td align="left">Name</td>
+<td align="left"><input type="text" name="name" /></td>
+</tr>
+<tr>
+<td align="left">Contact No. </td>
+<td align="left"><input type="text" name="contact" /></td>
+</tr>
+<tr>
+<td align="left">E-mail</td>
+<td align="left"><input type="text" name="email" /></td>
+</tr>
+<tr>
+<td align="left">Username</td>
+<td align="left"><input type="text" name="uname" /></td>
+</tr>
+<tr>
+<td align="left">Password</td>
+<td align="left"><input type="password" name="pass" /></td>
+</tr>
+<tr>
+<td align="left">Confirm Password </td>
+<td align="left"><input type="password" name="cpass" /></td>
+</tr>
+<tr>
+<td align="left">&nbsp;</td>
+<td align="left"><input type="submit" name="btn" value="Register" onClick="return validate()" /></td>
+</tr>
+</table>
+</form>
+<p>&nbsp;</p>
+<h2>&nbsp;</h2>
+<h3>&nbsp;</h3>
+</div>
+<!-- CONTENT END -->
+<div id="border">
+<h4>&nbsp;</h4>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+<div id="container-footer">
+<div id="footer">
+</div>
+</div>
+</div>
+<!-- ENDE container -->
+<div align=center>Cloud User Register</div></body>
+</html>
+

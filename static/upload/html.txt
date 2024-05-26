@@ -1,0 +1,7 @@
+<prev> --> print the content same as source html
+<html dir='ltr'> --> flow the whole content in left to right side
+<html dir='rtl'> --> flow the whole content in right to left side
+<tt></tt> --> content inside it will be monospaced every letter has same width
+<sup> --> word print above the current line
+<sub> --> word print below the current line
+<abbr> -->added the abrevation in tooltip

@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <title>Cloud User</title>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <link href="../static/bluebusiness.css" rel="stylesheet" type="text/css" />
+    <script language="javascript">
+        function validate() {
+            if (document.form1.uname.value == "") {
+                alert("Enter the Username");
+                document.form1.uname.focus();
+                return false;
+            }
+            if (document.form1.pass.value == "") {
+                alert("Enter the Password");
+                document.form1.pass.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <form name="form1" method="post">
+        <div id="container">
+            <div id="container-header">
+                <div id="container-name"><span>User</span></div>
+                <div id="container-slogan"><span>Data Server Security</span><span></span></div>
+            </div>
+            <div id="container-eyecatcher">
+                <div id="container-navigation">
+                    <ul id="navigation">
+                        <li><a href="/user_home">Home</a></li>
+                        <li><a href="/user_upload_file">upload File</a></li>
+                        <li><a href="/user_view_file">View Files</a></li>
+                        <li><a href="/userlogout">Logout</a></li>
+                    </ul>
+                </div>
+                <img src="../static/images/business_eyecatcher.jpg" alt="" />
+            </div>
+            <div id="container-content">
+                <h1 align="left">
+                    <!-- CONTENT END -->
+                    Welcome {{ value }}
+                </h1>
+                <h2 align="center">Key</h2>
+                <form name="form1" method="post" action="">
+                    <table width="298" border="0" align="center" cellpadding="5">
+                        <tr>
+                            <td colspan="2" scope="col">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td align="left">Private Key </td>
+                            <td align="left"><input name="private_key" type="text" id="private_key" /></td>
+                        </tr>
+                        <tr>
+                            <td align="left">&nbsp;</td>
+                            <td align="left"><input type="submit" name="btn" value="Submit"
+                                    onClick="return validate()" />
+                            </td>
+                        </tr>
+                    </table>
+                    <p>&nbsp;</p>
+                    {%if action== "OK"%}
+                    <table width="425" height="70" border="1" align="center" cellpadding="5" cellspacing="0">
+                        <tr>
+                            <th width="169" scope="col">Sender</th>
+                            <th width="109" scope="col">Description</th>
+                            <th width="109" scope="col">File</th>
+                        </tr>
+                        {%for rs in data %}
+                        <tr>
+                            <td>{{ rs[1]}}</td>
+                            <td>{{ rs[4]}}</td>
+                            <td><a href="../static/upload/{{ rs[3]}}">Open</a></td>
+                        </tr>
+                        {%endfor%}
+                    </table>
+                    {%elif action == "fake_key"%}
+                    <script language="javascript">
+                        alert("Your Key Is Fake Insert Valid Key");
+                        window.location.href = "/view_file";
+                    </script>
+                    {%endif%}
+                    <p>&nbsp;</p>
+                </form>
+                <p>&nbsp;</p>
+            </div>
+            <div id="container-footer">
+                <div id="footer">
+                </div>
+            </div>
+        </div>
+        <!-- ENDE container -->
+        <div align=center><a href="/">Logout</a><br />Cloud User</div>
+    </form>
+</body>
+
+</html>
