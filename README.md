@@ -23,7 +23,7 @@ was observe.
 Modules:
   **Admin**
     view user,
-    view user upload file list in encrpt form
+    view user upload file list in encrpt form \n
   **User**
     new user,
     upload file,
